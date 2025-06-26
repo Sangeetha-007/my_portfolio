@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Sangeetha Sasikumar | Portfolio</title>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&display=swap" rel="stylesheet">
+  <style>
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+  
+    body {
+      font-family: 'Inter', sans-serif;
+      background: #0d0d0d;
+      color: #fff;
+      display: flex;
+      min-height: 100vh;
+    }
+    aside {
+      background: #1a1a1a;
+      width: 375px;
+      padding: 2rem;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+    }
+    aside h1 {
+      font-size: 1.90rem;
+      margin-bottom: 1rem;
+      font-family: 'Bradley Hand', cursive;
+    }
+    aside nav a {
+      display: block;
+      color: #bbb;
+      text-decoration: none;
+      margin: 2rem 0;
+      transition: color 0.3s;
+    }
+    aside nav a:hover {
+      color: #fff;
+    }
+    main {
+      flex: 1;
+      padding: 2rem;
+      overflow-y: auto;
+    }
+    section {
+      margin-bottom: 4rem;
+    }
+    h2 {
+      font-size: 2rem;
+      margin-bottom: 1rem;
+      border-bottom: 2px solid #333;
+      padding-bottom: 0.5rem;
+    }
+    .projects-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 1.5rem;
+}
+
+.project-card {
+  background: #1a1a1a;
+  padding: 1rem;
+  border-radius: 8px;
+  border: 1px solid #333;
+  transition: transform 0.3s, box-shadow 0.3s;
+}
+
+.project-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.5);
+}
+
+.project-card h3 {
+  margin-bottom: 0.5rem;
+}
+
+.project-card p {
+  font-size: 0.9rem;
+  color: #bbb;
+  margin-bottom: 1rem;
+}
+
+.project-card a {
+  color: #4dabf7;
+  text-decoration: none;
+  font-weight: bold;
+}
+
+.project-card a:hover {
+  text-decoration: underline;
+}
+
+
+  </style>
+</head>
+<body>
+  <aside>
+    <div>
+      <h1>Sangeetha Sasikumar</h1>
+      <nav>
+        <a href="#about">About</a>
+        <a href="#projects">Projects</a>
+        <a href="#contact">Contact</a>
+      </nav>
+    </div>
+    <div>
+      <p style="font-size: 0.8rem; color: #555;">&copy; 2025 Sangeetha Sasikumar </p>
+    </div>
+  </aside>
+  <main>
+    <section id="about">
+      <h2>About Me</h2>
+      <p> Hi, my name is Sangeetha Sasikumar, and I am from Brooklyn, NY. I have 3+ years of experience as a Software
+        Engineer. I am currently a Data Science graduate student at the CUNY School of Professional Studies. 
+      </p>
+      <img>  </img>
+    </section>
+    <section id="projects">
+      <h2>Projects</h2>
+      
+        <div class="projects-grid">
+            
+            <div class="project-card">
+             
+            <h3>2020 Cyberbullying Classification</h3>
+            <img>  </img>
+            <p>Utilized Naïve Bayes algorithm to identify negative sentiment of Twitter tweets from 2020 with 80% accuracy on the model.</p>
+            <a href="https://github.com/Sangeetha-007/2020-Cyberbullying-Classification" target="_blank">View Code</a>
+            </div>
+        
+            <div class="project-card">
+            <h3>Car Purchase Prediction Model</h3>
+            <p>A short summary of this project's purpose or features.</p>
+            <a href="https://yourprojectlive.com" target="_blank">Live Demo</a>
+            </div>
+
+            <div class="project-card">
+                <h3>Car Purchase Prediction Model</h3>
+                <p>A short summary of this project's purpose or features.</p>
+                <a href="https://yourprojectlive.com" target="_blank">Live Demo</a>
+                </div>
+            
+        
+            <!-- Add more project cards as needed -->
+        
+        </div>
+      
+    </section>
+    <section id="contact">
+      <h2>Contact</h2>
+      <p> Email: sangeekumar7@gmail.com</p>
+    </section>
+  </main>
+</body>
+</html>
