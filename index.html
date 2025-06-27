@@ -11,11 +11,7 @@
       margin: 0;
       padding: 0;
     }
-    @media (max-width: 768px) {
-      body {
-      flex-direction: column;
-      }
-  
+
     body {
       font-family: 'Inter', sans-serif;
       background: #0d0d0d;
@@ -122,6 +118,39 @@
       background: #4dabf7;
       color: #0d0d0d;
       transform: scale(1.05);
+    }
+
+
+   @media (max-width: 768px) {
+      body {
+        flex-direction: column;
+      }
+      aside {
+        width: 100%;
+        flex-direction: row;
+        align-items: center;
+        justify-content: space-between;
+        padding: 1rem;
+        position: sticky;
+        top: 0;
+        z-index: 100;
+      }
+      aside nav {
+        display: flex;
+        gap: 1rem;
+      }
+      aside nav a {
+        margin: 0;
+      }
+      main {
+        padding: 1rem;
+      }
+      h2 {
+        font-size: 1.5rem;
+      }
+      .projects-grid {
+        grid-template-columns: 1fr;
+      }
     }
 
 
