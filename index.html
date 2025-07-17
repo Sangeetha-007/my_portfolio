@@ -5,6 +5,9 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Sangeetha Sasikumar | Portfolio</title>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&display=swap" rel="stylesheet">
+  <!-- Lightbox2 CSS -->
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/lightbox2/2.11.4/css/lightbox.min.css" rel="stylesheet" />
+
   <style>
     * {
       box-sizing: border-box;
@@ -360,11 +363,13 @@
           <a href="https://docs.google.com/document/d/1tameaCWE7frNDfh4-dsVA0sjvFNDE6p5R4bHJWwFSNU/edit?usp=sharing" target="_blank" class="resume-button"> Data Scientist Resume</a>
       </section>
       
-        <section id="other">
-            <h2>Other Creations</h2>
-            <h3>Maps</h3>
-            <img src="images/Rivers.png"
-        </section>
+      <section id="other">
+        <h2>Other Creations</h2>
+        <h3>Maps</h3>
+        <a href="images/Rivers.png" data-lightbox="maps" data-title="Map of Rivers">
+          <img src="images/RiversThumbnail.png" alt="Map of Rivers" style="max-width: 100%; height: auto; cursor: pointer;">
+        </a>
+      </section>
      
     <section id="contact">
       <h2>Contact</h2>
@@ -381,8 +386,8 @@
 
   
 
-
-
+<!-- Lightbox2 JS -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/lightbox2/2.11.4/js/lightbox.min.js"></script>
 
 
 </body>
