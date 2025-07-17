@@ -153,6 +153,7 @@
       }
     }
 
+<<<<<<< Updated upstream
     .resume-button {
   display: inline-block;
   background: #4dabf7;
@@ -165,6 +166,75 @@
 }
 .resume-button:hover {
   background: #f3f4f5;
+=======
+    .chat-button {
+      position: fixed;
+      bottom: 20px;
+      right: 20px;
+      background: #4dabf7;
+      color: #0d0d0d;
+      border: none;
+      padding: 0.7rem 1.2rem;
+      border-radius: 30px;
+      cursor: pointer;
+      font-weight: bold;
+      box-shadow: 0 4px 15px rgba(0,0,0,0.4);
+      z-index: 200;
+    }
+    .chat-window {
+      position: fixed;
+      bottom: 80px;
+      right: 20px;
+      width: 300px;
+      max-height: 400px;
+      background: #1a1a1a;
+      border: 1px solid #333;
+      border-radius: 8px;
+      display: none;
+      flex-direction: column;
+      overflow: hidden;
+      z-index: 200;
+    }
+    .chat-messages {
+      flex: 1;
+      padding: 0.8rem;
+      overflow-y: auto;
+      font-size: 0.9rem;
+    }
+    .chat-input {
+      display: flex;
+      border-top: 1px solid #333;
+    }
+    .chat-input input {
+      flex: 1;
+      padding: 0.5rem;
+      border: none;
+      outline: none;
+      background: #0d0d0d;
+      color: #fff;
+    }
+    .chat-input button {
+      background: #4dabf7;
+      border: none;
+      padding: 0.5rem 1rem;
+      cursor: pointer;
+      color: #0d0d0d;
+      font-weight: bold;
+    }
+
+    .resume-button {
+      display: inline-block;
+      background: #4dabf7;
+      color: #0d0d0d;
+      padding: 0.5rem 1rem;
+      border-radius: 20px;
+      text-decoration: none;
+      font-weight: bold;
+      transition: background 0.3s;
+}
+.resume-button:hover {
+      background: #339af0;
+>>>>>>> Stashed changes
 }
 
 
@@ -262,8 +332,12 @@
 
         <section id="resume">
           <h2>Resume</h2>
+<<<<<<< Updated upstream
           <a href="https://docs.google.com/document/d/1yHoj2mIAuo63Y7_zyp4nxvHM1yU6uYRhVXZNb-sqLTE/edit?usp=sharing" target="_blank" class="resume-button">Artificial Intelligence Engineer </a>
           <a href="https://docs.google.com/document/d/1Eza-Hp89TJt69FrF3CkQabi-j9_HJzpqQMc48mIB7XQ/edit?usp=sharing" target="_blank" class="resume-button"> Data Scientist</a>
+=======
+          <a href="https://docs.google.com/document/d/1yHoj2mIAuo63Y7_zyp4nxvHM1yU6uYRhVXZNb-sqLTE/edit?usp=sharing" target="_blank" class="resume-button"> Artificial Intelligence Engineer Resume (PDF)</a>
+>>>>>>> Stashed changes
       </section>
       
         <section id="other">
@@ -279,5 +353,64 @@
       </p>
     </section>
   </main>
+  <button class="chat-button" onclick="toggleChat()">Ask Me</button>
+  <div class="chat-window" id="chatWindow">
+    <div class="chat-messages" id="chatMessages"></div>
+    <div class="chat-input">
+      <input type="text" id="userInput" placeholder="Ask me something...">
+      <button onclick="sendMessage()">Send</button>
+    </div>
+  </div>
+
+  <script>
+    function toggleChat() {
+      const chat = document.getElementById('chatWindow');
+      chat.style.display = chat.style.display === 'flex' ? 'none' : 'flex';
+    }
+
+    async function sendMessage() {
+      const input = document.getElementById('userInput');
+      const msg = input.value.trim();
+      if (!msg) return;
+
+      const chatMessages = document.getElementById('chatMessages');
+      chatMessages.innerHTML += `<p><strong>You:</strong> ${msg}</p>`;
+      input.value = '';
+      chatMessages.scrollTop = chatMessages.scrollHeight;
+
+      // Call OpenAI API - replace with your key
+      try {
+        const res = await fetch('https://api.openai.com/v1/completions', {
+          method: 'POST',
+          headers: {
+            'Content-Type': 'application/json',
+            'Authorization': 'Bearer YOUR_OPENAI_API_KEY'
+          },
+          body: JSON.stringify({
+            model: 'text-davinci-003',
+            prompt: `You are an AI agent on my portfolio. Answer politely and concisely. Question: ${msg}`,
+            max_tokens: 100
+          })
+        });
+        const data = await res.json();
+        const reply = data.choices?.[0]?.text?.trim() || "Sorry, I didn't understand.";
+
+        chatMessages.innerHTML += `<p><strong>AI:</strong> ${reply}</p>`;
+        chatMessages.scrollTop = chatMessages.scrollHeight;
+      } catch (e) {
+        chatMessages.innerHTML += `<p><strong>AI:</strong> Something went wrong.</p>`;
+      }
+    }
+
+
+
+
+
+
+
+
+
+
+ </script>
 </body>
 </html>
