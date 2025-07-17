@@ -179,46 +179,10 @@
       box-shadow: 0 4px 15px rgba(0,0,0,0.4);
       z-index: 200;
     }
-    .chat-window {
-      position: fixed;
-      bottom: 80px;
-      right: 20px;
-      width: 300px;
-      max-height: 400px;
-      background: #1a1a1a;
-      border: 1px solid #333;
-      border-radius: 8px;
-      display: none;
-      flex-direction: column;
-      overflow: hidden;
-      z-index: 200;
-    }
-    .chat-messages {
-      flex: 1;
-      padding: 0.8rem;
-      overflow-y: auto;
-      font-size: 0.9rem;
-    }
-    .chat-input {
-      display: flex;
-      border-top: 1px solid #333;
-    }
-    .chat-input input {
-      flex: 1;
-      padding: 0.5rem;
-      border: none;
-      outline: none;
-      background: #0d0d0d;
-      color: #fff;
-    }
-    .chat-input button {
-      background: #4dabf7;
-      border: none;
-      padding: 0.5rem 1rem;
-      cursor: pointer;
-      color: #0d0d0d;
-      font-weight: bold;
-    }
+
+
+
+
 
     .resume-button {
       display: inline-block;
@@ -233,6 +197,63 @@
 .resume-button:hover {
       background: #339af0;
 }
+
+}
+
+
+
+#ai-agent {
+          position: fixed;
+          bottom: 20px;
+          right: 20px;
+          z-index: 1000;
+        }
+        
+        #ai-toggle {
+          width: 60px;
+          height: 60px;
+          border-radius: 50%;
+          background: #4dabf7;
+          color: #fff;
+          font-size: 28px;
+          border: none;
+          cursor: pointer;
+          box-shadow: 0 4px 12px rgba(0,0,0,0.3);
+          transition: background 0.3s;
+        }
+        
+        #ai-toggle:hover {
+          background: #339af0;
+        }
+        
+        #chat-box {
+          display: none;
+          position: absolute;
+          bottom: 80px;
+          right: 0;
+          width: 280px;
+          background: #1a1a1a;
+          border: 1px solid #333;
+          border-radius: 10px;
+          padding: 10px;
+          box-shadow: 0 0 15px rgba(0,0,0,0.5);
+        }
+        
+        #chat-log {
+          max-height: 200px;
+          overflow-y: auto;
+          font-size: 14px;
+          color: #fff;
+          margin-bottom: 8px;
+        }
+        
+        #chat-input {
+          width: 100%;
+          padding: 6px 10px;
+          border-radius: 5px;
+          border: none;
+          font-size: 14px;
+        }
 
 
 
@@ -293,6 +314,10 @@
              <span class="skill">KNN</span>
             </div>
         </div>
+
+
+  
+        
  
 
     </section>
@@ -331,7 +356,6 @@
           <h2>Resume</h2>
           <a href="https://docs.google.com/document/d/1yHoj2mIAuo63Y7_zyp4nxvHM1yU6uYRhVXZNb-sqLTE/edit?usp=sharing" target="_blank" class="resume-button">Artificial Intelligence Engineer </a>
           <a href="https://docs.google.com/document/d/1Eza-Hp89TJt69FrF3CkQabi-j9_HJzpqQMc48mIB7XQ/edit?usp=sharing" target="_blank" class="resume-button"> Data Scientist</a>
-          <a href="https://docs.google.com/document/d/1yHoj2mIAuo63Y7_zyp4nxvHM1yU6uYRhVXZNb-sqLTE/edit?usp=sharing" target="_blank" class="resume-button"> Artificial Intelligence Engineer Resume (PDF)</a>
       </section>
       
         <section id="other">
@@ -346,65 +370,16 @@
            <a href="https://www.linkedin.com/in/sangeethasasikumar/" target="_blank"> LinkedIn</a>
       </p>
     </section>
-  </main>
-  <button class="chat-button" onclick="toggleChat()">Ask Me</button>
-  <div class="chat-window" id="chatWindow">
-    <div class="chat-messages" id="chatMessages"></div>
-    <div class="chat-input">
-      <input type="text" id="userInput" placeholder="Ask me something...">
-      <button onclick="sendMessage()">Send</button>
-    </div>
-  </div>
 
-  <script>
-    function toggleChat() {
-      const chat = document.getElementById('chatWindow');
-      chat.style.display = chat.style.display === 'flex' ? 'none' : 'flex';
-    }
+</main>
 
-    async function sendMessage() {
-      const input = document.getElementById('userInput');
-      const msg = input.value.trim();
-      if (!msg) return;
 
-      const chatMessages = document.getElementById('chatMessages');
-      chatMessages.innerHTML += `<p><strong>You:</strong> ${msg}</p>`;
-      input.value = '';
-      chatMessages.scrollTop = chatMessages.scrollHeight;
 
-      // Call OpenAI API - replace with your key
-      try {
-        const res = await fetch('https://api.openai.com/v1/completions', {
-          method: 'POST',
-          headers: {
-            'Content-Type': 'application/json',
-            'Authorization': 'Bearer YOUR_OPENAI_API_KEY'
-          },
-          body: JSON.stringify({
-            model: 'text-davinci-003',
-            prompt: `You are an AI agent on my portfolio. Answer politely and concisely. Question: ${msg}`,
-            max_tokens: 100
-          })
-        });
-        const data = await res.json();
-        const reply = data.choices?.[0]?.text?.trim() || "Sorry, I didn't understand.";
-
-        chatMessages.innerHTML += `<p><strong>AI:</strong> ${reply}</p>`;
-        chatMessages.scrollTop = chatMessages.scrollHeight;
-      } catch (e) {
-        chatMessages.innerHTML += `<p><strong>AI:</strong> Something went wrong.</p>`;
-      }
-    }
+  
 
 
 
 
 
-
-
-
-
-
- </script>
 </body>
 </html>
