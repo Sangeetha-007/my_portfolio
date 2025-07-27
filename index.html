@@ -5,6 +5,8 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Sangeetha Sasikumar | Portfolio</title>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+
 
 
   <style>
@@ -72,6 +74,16 @@
   grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
   gap: 1.5rem;
 }
+
+ul.author__urls.social-icons {
+  list-style: none;
+  padding-left: 0;
+}
+
+.social-icons .fa-linkedin,.social-icons .fa-linkedin-square {
+    color: #007bb6
+}
+
 
 .project-card {
   background: #1a1a1a;
@@ -277,6 +289,13 @@
   <aside>
     <div>
       <h1>Sangeetha Sasikumar</h1>
+      <ul class="author__urls social-icons">
+        <li>
+          <!--<i class='fas fa-map-marker' style='font-size:24px'></i> -->
+          <i class='fas fa-map-marker' style='font-size:13px'></i>
+            New York, NY USA
+        </li>
+      </ul>
       <nav>
         <a href="#about">About</a>
          <a href="#skills">Skills</a>
@@ -426,9 +445,13 @@
       <h2>Contact</h2>
       <p> Email: 
         <a href="mailto:sangeekumar7@gmail.com" target="_blank"> sangeekumar7@gmail.com</a> </p> 
-      <p> 
+     
+        <ul class="author__urls social-icons">
+        <p> 
+        <i class="fab fa-fw fa-linkedin" aria-hidden="true"></i>
            <a href="https://www.linkedin.com/in/sangeethasasikumar/" target="_blank"> LinkedIn</a>
       </p>
+    </ul>
     </section>
 
 </main>
